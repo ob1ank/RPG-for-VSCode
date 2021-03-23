@@ -6,8 +6,7 @@
     "rpgle",
     "sqlrpgle"
   ],
-  "foldingStartMarker": "(?i)(for|if|do|dow|dou|select|begsr|dcl-proc|dcl-pi|dcl-pr|dcl-ds)",
-  "foldingStopMarker": "(?i)(endfor|endif|enddo|endsl|endsr|end-proc|end-pi|end-pr|end-ds)",
+
   "grammaurl": "http://manual.macromates.com/en/language_grammars#language_grammars",
   "name": "rpg RPG",
   "patterns": [
@@ -30,23 +29,19 @@
     },
     {
       "match": "(?i)[\\%](abs|addr|alloc|bitand|bitnot|bitor|bitxor|char|check|checkr|date|days|dec|dech|decpos|diff|div|editc|editflt|editw|elem|eof|equal|error|fields|float|found|graph|hours|int|inth|kds|len|lookup|minutes|months|mseconds|nullind|occur|open|paddr|paddr|parms|realloc|rem|replace|scan|seconds|shtdn|size|sqrt|status|str|str|str|subdt|this|time|timestamp|tlookup|trim|triml|trimr|ucs2|uns|unsh|xfoot|xlate|years)\\b",
-      "name": "keyword.rpg"
+      "name": "keyword.operator.rpg"
     },
     {
-      "match": "(?i)\\b(not|and|or)\\b",
-      "name": "keyword.control.rpg"
-    },
-    {
-      "match": "(?i)\\b(not|acq|add|adddur|alloc|bitoff|biton|cab|call|callb|callp|cas|cat|chain|check|checkr|clear|close|commit|comp|dealloc|define|delete|div|dsply|dump|eval|evalr|except|exfmt|exsr|extrct|feod|force|goto|in|iter|kfld|klist|leave|leavesr|lookup|mhhzo|mhlzo|mlhzo|mllzo|monitor|move|movea|movel|mult|mvr|next|occur|on|open|or|other|out|parm|plist|post|read|readc|reade|readp|readpe|realloc|rel|return|reset|rolbk|scan|setgt|setll|setoff|seton|shtdn|sorta|sqrt|sub|subdur|subst|tag|test|testb|testn|testz|time|unlock|update|write|xfoot|xlate|z-add|z-sub)\\b",
+      "match": "(?i)\\b(not|acq|add|adddur|alloc|and|bitoff|biton|cab|call|callb|callp|cas|cat|chain|check|checkr|clear|close|commit|comp|dealloc|define|delete|div|dsply|dump|eval|evalr|except|exfmt|exsr|extrct|feod|force|goto|in|iter|kfld|klist|leave|leavesr|lookup|mhhzo|mhlzo|mlhzo|mllzo|monitor|move|movea|movel|mult|mvr|next|occur|on|open|or|other|out|parm|plist|post|read|readc|reade|readp|readpe|realloc|rel|reset|return|rolbk|scan|setgt|setll|setoff|seton|shtdn|sorta|sqrt|sub|subdur|subst|tag|test|testb|testn|testz|time|unlock|update|write|xfoot|xlate|z-add|z-sub)\\b",
       "name": "keyword.rpg"
     },
     {
       "match": "(?i)^\\s*(/free|/end-free|/include|/copy)\\b",
-      "name": "keyword.rpg"
+      "name": "keyword.operator.rpg"
     },
     {
       "match": "(?i)\\b(var)\\b",
-      "name": "storage.rpg"
+      "name": "storage.type.rpg"
     },
     {
       "match": "(?i)\\b(zoned|varying|varucs2|vargraph|varchar|value|uns|ucs2|tofile|timfmt|timestamp|time|template|static|sqltype|rtnparm|qualified|psds|procptr|prefix|pos|pointer|perrcd|packeven|packed|overlay|options|opdesc|occurs|object|noopt|likerec|likefile|likeds|like|len|inz|ind|int|import|graph|fromfile|float|extproc|extpgm|extname|extfmt|extfld|ext|export|dtaara|dim|descend|datfmt|date|ctdata|const|class|char|ccsid|bindec|based|ascend|altseq|alt|align|alias)\\b",
@@ -63,7 +58,7 @@
     {
       "begin": "\\%\\>",
       "end": "\\<\\%",
-      "name": "meta.preprocessor.string.rpg"
+      "name": "storage.type.rpg"
     },
     {
       "begin": "\\/\\*",

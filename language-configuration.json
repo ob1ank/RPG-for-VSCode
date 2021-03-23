@@ -29,5 +29,17 @@
         ["\"", "\""],
         ["'", "'"],
         ["`", "`"]
-    ]
+    ],
+
+    "folding": {
+        "markers": {
+          "start": "^.*C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)\\b",
+          "end": "^.*C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)\\b"
+        }
+    },
+
+    "indentationRules": {
+        "increaseIndentPattern": "^.*C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)\\b",
+        "decreaseIndentPattern": "^.*C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)\\b"
+    }
 }
