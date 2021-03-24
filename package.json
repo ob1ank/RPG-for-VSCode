@@ -1,16 +1,16 @@
 {
-	"name": "rpg",
+	"name": "rpg_cmb",
 	"displayName": "RPG",
-	"description": "RPG for IBM i",
+	"description": "RPG for CMB",
 	"version": "0.2.2",
 	"icon": "rpg.jpg",
-	"publisher": "NielsLiisberg",
+	"publisher": "Oblank",
 	"readme": "README.md",
 	"author": {
-		"name": "Niels Liisberg"
+		"name": "Oblank"
 	},
 	"engines": {
-		"vscode": "^1.4.0"
+		"vscode": "^1.54.3"
 	},
 	"keywords": [
 		"RPG",
@@ -53,15 +53,5 @@
 			  "path": "./snippets.json"
 			}
 		  ]
-	},
-	"__metadata": {
-		"id": "82248b3f-e978-444b-bd4b-40f5935691aa",
-		"publisherId": "5e44d29a-ac10-460d-ade0-8ae845cea985",
-		"publisherDisplayName": "Niels Liisberg"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/NielsLiisberg/RPG-for-VSCode"
-	  },
-	  "homepage": "https://github.com/NielsLiisberg/RPG-for-VSCode/blob/master/README.md"
+	}
 }
