@@ -1,5 +1,5 @@
 {
-	"name": "rpg_cmb",
+	"name": "rpg-cmb",
 	"displayName": "RPG",
 	"description": "RPG for CMB",
 	"version": "0.2.2",
@@ -58,12 +58,6 @@
 			}
 		]
 	},
-	"commands": [
-		{
-			"command": "extension.format-rpg",
-			"title": "Format Rpg Files"
-		}
-	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ob1ank/RPG-for-VSCode"
