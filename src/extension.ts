@@ -13,12 +13,12 @@ export function activate(context: vscode.ExtensionContext) {
 				return [];
 			}
 
-			let mark : string = " * rpg readonly cmb.done, please don't delete!!!"
+			let mark : string = " * 已格式化标记, 不要删除，也不要在后面加东西!!!"
 			if(document.lineAt(document.lineCount - 1).text.search(mark) > -1) {
 				return [];
 			}
 
-			let strDebug : string = "\n\n\nDebug message:\n";
+			let strDebug : string = "\n\n\nDebug 信息:\n";
 			let ret : vscode.TextEdit[] = [];
 			let indentationDeep : number = 0;
 			let lastLineEndWithAndOr : boolean = false;

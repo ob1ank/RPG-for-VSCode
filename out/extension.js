@@ -12,11 +12,11 @@ function activate(context) {
             if (document.lineCount < 1) {
                 return [];
             }
-            let mark = " * rpg readonly cmb.done, please don't delete!!!";
+            let mark = " * 已格式化标记, 不要删除，也不要在后面加东西!!!";
             if (document.lineAt(document.lineCount - 1).text.search(mark) > -1) {
                 return [];
             }
-            let strDebug = "\n\n\nDebug message:\n";
+            let strDebug = "\n\n\nDebug 信息:\n";
             let ret = [];
             let indentationDeep = 0;
             let lastLineEndWithAndOr = false;
