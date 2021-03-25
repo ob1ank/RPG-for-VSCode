@@ -12,6 +12,7 @@ function activate(context) {
             if (document.lineCount < 1) {
                 return [];
             }
+            let strDebug = "\n\n\nDebug message:\n";
             let ret = [];
             let indentationDeep = 0;
             let lastLineEndWithAndOr = false;
@@ -19,13 +20,15 @@ function activate(context) {
                 const line = document.lineAt(i);
                 let text = line.text;
                 let firstValidCharIndex = text.search("[a-zA-Z\\*]");
-                console.log(line.lineNumber + ": " + firstValidCharIndex);
-                if (firstValidCharIndex < 0 || '*' === text[firstValidCharIndex]) {
+                if (firstValidCharIndex < 0 || 'C' !== text[firstValidCharIndex]) {
                     continue;
                 }
                 let cPosition = text.indexOf("C");
-                let matchStart = text.match("^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|WHEN|OTHER|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|CSR\\s*#.*)\\b") != null;
-                let matchEnd = text.match("^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|WHEN|OTHER|ENDSR|END-PROC|END-PI|END-PR|END-DS)|CSR\\s*ENDSR)\\b") != null;
+                if ('*' === text[cPosition + 1]) {
+                    cPosition++;
+                }
+                let matchStart = text.match("^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|WHEN|OTHER|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|C.*BEGSR.*)\\b") != null;
+                let matchEnd = text.match("^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|WHEN|OTHER|END-PROC|END-PI|END-PR|END-DS)|C(SR)?\\s*ENDSR)\\b") != null;
                 if (matchEnd) {
                     indentationDeep--;
                 }
@@ -38,14 +41,15 @@ function activate(context) {
                     deep--;
                 }
                 let textEdit = replaceText(cPosition, deep, line.lineNumber);
+                strDebug += (line.lineNumber + 1) + ": " + "start: " + matchStart + ", end: " + matchEnd + ", deep: " + deep + "\n";
                 if (matchStart) {
                     indentationDeep++;
                 }
                 lastLineEndWithAndOr = text.match(".*(AND|OR)\\s*$") != null;
                 console.log(line.lineNumber + ":  start " + matchStart + " , end " + matchEnd);
                 if (indentationDeep < 0) {
-                    vscode.window.showErrorMessage("代码有问题，格式化失败/(ㄒoㄒ)/~~");
-                    return [];
+                    vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将带有debug信息的源文件发送给作者");
+                    return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
                 }
                 // let starPosition : number = text.search("[\\*]");
                 // if(starPosition >= 0) {
@@ -57,6 +61,10 @@ function activate(context) {
                 // 	}
                 // }
                 ret.push(textEdit);
+            }
+            if (indentationDeep != 0) {
+                vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将带有debug信息的源文件发送给作者");
+                return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
             }
             return ret;
         }
@@ -71,7 +79,7 @@ function replaceText(cPosition, indentationDeep, lineNumber) {
     let range = new vscode.Range(start, start);
     let str = "";
     for (let i = 0; i < indentationDeep; i++) {
-        str += "\t";
+        str += "    ";
     }
     return vscode.TextEdit.replace(range, str);
 }

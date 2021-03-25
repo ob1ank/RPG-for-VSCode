@@ -1,7 +1,7 @@
 {
-	"name": "rpg-cmb",
-	"displayName": "RPG",
-	"description": "RPG for CMB",
+	"name": "rpg-readonly-cmb",
+	"displayName": "Rpg Readonly CMB",
+	"description": "Rpg Readonly CMB",
 	"version": "0.2.2",
 	"icon": "rpg.jpg",
 	"publisher": "Oblank",

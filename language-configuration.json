@@ -33,13 +33,13 @@
 
     "folding": {
         "markers": {
-          "start": "^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|CSR\\s*#.*)\\b",
-          "end": "^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)|CSR\\s*ENDSR)\\b"
+          "start": "^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|C.*BEGSR.*)\\b",
+          "end": "^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)|C(SR)?\\s*ENDSR)\\b"
         }
     },
 
     "indentationRules": {
-        "increaseIndentPattern": "^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|CSR\\s*#.*)\\b",
-        "decreaseIndentPattern": "^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)|CSR\\s*ENDSR)\\b"
+        "increaseIndentPattern": "^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|C.*BEGSR.*)\\b",
+        "decreaseIndentPattern": "^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)|C(SR)?\\s*ENDSR)\\b"
     }
 }
