@@ -13,8 +13,13 @@ export function activate(context: vscode.ExtensionContext) {
 				return [];
 			}
 
+			let mark : string = " * rpg readonly cmb.done, please don't delete!!!"
+			if(document.lineAt(document.lineCount - 1).text.search(mark) > -1) {
+				return [];
+			}
+
 			let strDebug : string = "\n\n\nDebug message:\n";
-			let ret : vscode.TextEdit[] = []
+			let ret : vscode.TextEdit[] = [];
 			let indentationDeep : number = 0;
 			let lastLineEndWithAndOr : boolean = false;
 
@@ -84,6 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
 				return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
 			}
 
+			ret.push(vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), "\n\n" + mark));
 			return ret;
         }
     });

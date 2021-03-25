@@ -12,6 +12,10 @@ function activate(context) {
             if (document.lineCount < 1) {
                 return [];
             }
+            let mark = " * rpg readonly cmb.done, please don't delete!!!";
+            if (document.lineAt(document.lineCount - 1).text.search(mark) > -1) {
+                return [];
+            }
             let strDebug = "\n\n\nDebug message:\n";
             let ret = [];
             let indentationDeep = 0;
@@ -66,6 +70,7 @@ function activate(context) {
                 vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将带有debug信息的源文件发送给作者");
                 return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
             }
+            ret.push(vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), "\n\n" + mark));
             return ret;
         }
     });
