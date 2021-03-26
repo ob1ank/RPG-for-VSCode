@@ -31,7 +31,7 @@ function activate(context) {
                 if ('*' === text[cPosition + 1]) {
                     cPosition++;
                 }
-                let matchStart = text.match("^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|WHEN|OTHER|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|C.*BEGSR.*)\\b") != null;
+                let matchStart = text.match("^.*(C\\s*(FOR|IF|DOW|DOU|SELECT|WHEN|OTHER|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|(C.*BEGSR.*)|(C\\s+\\w+\\s+DO))\\b") != null;
                 let matchEnd = text.match("^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|WHEN|OTHER|END-PROC|END-PI|END-PR|END-DS)|C(SR)?\\s*ENDSR)\\b") != null;
                 if (matchEnd) {
                     indentationDeep--;
