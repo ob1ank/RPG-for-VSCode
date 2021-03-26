@@ -39,7 +39,7 @@
     },
 
     "indentationRules": {
-        "increaseIndentPattern": "^.*(C\\s*(FOR|IF|DO|DOW|DOU|SELECT|BEGSR|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|C.*BEGSR.*)\\b",
+        "increaseIndentPattern": "^.*(C\\s*(FOR|IF|DOW|DOU|SELECT|DCL-PROC|DCL-PI|DCL-PR|DCL-DS)|(C.*BEGSR.*)|(C\\s+\\w+\\s+DO))\\b",
         "decreaseIndentPattern": "^.*(C\\s*(ENDFOR|ENDIF|ENDDO|ENDSL|ENDSR|END-PROC|END-PI|END-PR|END-DS)|C(SR)?\\s*ENDSR)\\b"
     }
 }
