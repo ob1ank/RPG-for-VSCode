@@ -10,7 +10,7 @@
 		"name": "Oblank"
 	},
 	"engines": {
-		"vscode": "^1.54.3"
+		"vscode": "^1.4.0"
 	},
 	"keywords": [
 		"RPG",
