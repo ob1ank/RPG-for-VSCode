@@ -9,6 +9,7 @@ const vscode = require("vscode");
 function activate(context) {
     vscode.languages.registerDocumentFormattingEditProvider('rpg', {
         provideDocumentFormattingEdits(document) {
+            let isDebug = false;
             if (document.lineCount < 1) {
                 return [];
             }
@@ -52,11 +53,16 @@ function activate(context) {
                 if (matchStart) {
                     indentationDeep++;
                 }
-                lastLineEndWithAndOr = text.match(".*(AND|OR)\\s*$") != null;
+                lastLineEndWithAndOr = text.match(".*\\s+(AND|OR)\\s*$") != null;
                 console.log(line.lineNumber + ":  start " + matchStart + " , end " + matchEnd);
                 if (indentationDeep < 0) {
-                    vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将带有debug信息的源文件发送给作者");
-                    return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
+                    vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将源文件发送给作者");
+                    if (isDebug) {
+                        return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
+                    }
+                    else {
+                        return [];
+                    }
                 }
                 // let starPosition : number = text.search("[\\*]");
                 // if(starPosition >= 0) {
@@ -70,8 +76,13 @@ function activate(context) {
                 ret.push(textEdit);
             }
             if (indentationDeep != 0) {
-                vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将带有debug信息的源文件发送给作者");
-                return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
+                vscode.window.showErrorMessage("格式化失败/(ㄒoㄒ)/~~\n请将源文件发送给作者");
+                if (isDebug) {
+                    return [vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), strDebug)];
+                }
+                else {
+                    return [];
+                }
             }
             ret.push(vscode.TextEdit.insert(new vscode.Position(document.lineCount + 1, 0), "\n\n" + mark));
             return ret;
