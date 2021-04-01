@@ -27,6 +27,9 @@ function activate(context) {
                 if (firstValidCharIndex < 0 || 'C' !== text[firstValidCharIndex]) {
                     continue;
                 }
+                if (firstValidCharIndex + 1 < text.length && '*' === text[firstValidCharIndex + 1]) {
+                    continue;
+                }
                 let cPosition = text.indexOf("C");
                 if ('*' === text[cPosition + 1]) {
                     cPosition++;
